@@ -69,4 +69,6 @@ public class Product {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+
 }

@@ -4,6 +4,7 @@ import co.istad.jdbc.model.Product;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductDao {
 
@@ -15,8 +16,17 @@ public interface ProductDao {
     // 3. Parameters
     List<Product> findAll() throws SQLException;
 
-    // Update
+    // Update by product code on existing record -> return as affected row
+    int updatedByCode(String code, Product product) throws SQLException;
 
-    // Delete
+    // 1. Find a product by code
+    Optional<Product> findByCode(String code) throws SQLException;
+
+//     Delete
+    int deleteByCode(String code) throws SQLException;
+
+    boolean existByCode(String code) throws SQLException;
+
+    Product getProductByCode(String code) throws SQLException;
 
 }
